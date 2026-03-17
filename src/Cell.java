@@ -7,6 +7,7 @@ public class Cell {
         this.col = col; 
     }
 
+    @Override
     public String toString() {
         return "(" + row + "," + col + ")"; 
     }
