@@ -1,3 +1,6 @@
+import java.util.ArrayList;
+import java.util.List; 
+
 public class Maze {
 
     private final int rows;
@@ -54,6 +57,33 @@ public class Maze {
             throw new IllegalArgumentException("Cell " + cell + " is out of maze bounds"); 
         }
         return grid[cell.row][cell.col];
+    }
+
+    public List<Cell> getNeighbors(Cell cell) {
+        List<Cell> neighbors = new ArrayList<>();
+
+        Cell up = new Cell(cell.row - 1, cell.col);
+        Cell down = new Cell(cell.row + 1, cell.col); 
+        Cell right = new Cell(cell.row, cell.col + 1); 
+        Cell left = new Cell(cell.row, cell.col - 1); 
+
+        if (this.inBounds(up) && !this.isWall(up)) {
+            neighbors.add(up); 
+        }
+
+        if (this.inBounds(down) && !this.isWall(down)) {
+            neighbors.add(down); 
+        }
+
+        if (this.inBounds(right) && !this.isWall(right)) {
+            neighbors.add(right); 
+        }
+
+        if (this.inBounds(left) && !this.isWall(left)) {
+            neighbors.add(left); 
+        }
+
+        return neighbors; 
     }
 
     @Override

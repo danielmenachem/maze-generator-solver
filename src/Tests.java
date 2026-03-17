@@ -1,9 +1,6 @@
 public class Tests {
     public static void main (String[] args) {
-        mazeGeneratorTest(); 
-        mazeGeneratorTest();
-        mazeGeneratorTest();
-        mazeGeneratorTest();
+        cellTest();
     }
 
     public static void mazeTest() {
@@ -34,6 +31,13 @@ public class Tests {
         MazeGenerator generator = new MazeGenerator(); 
         Maze maze = generator.generate(11, 11); 
         System.out.println(maze);
+    }
+
+    public static void cellTest() {
+        Cell a = new Cell(1,2);
+        Cell b = new Cell(1,2); 
+
+        System.out.println(a.equals(b));
     }
     
 }
