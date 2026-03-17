@@ -1,6 +1,6 @@
 public class Tests {
     public static void main (String[] args) {
-        cellTest();
+        getNeighborsTest();
     }
 
     public static void mazeTest() {
@@ -38,6 +38,16 @@ public class Tests {
         Cell b = new Cell(1,2); 
 
         System.out.println(a.equals(b));
+    }
+
+    public static void getNeighborsTest() {
+        MazeGenerator generator = new MazeGenerator(); 
+        Maze maze = generator.generate(11, 11);
+        System.out.println("The maze:");
+        System.out.println(maze);
+        Cell c1 = new Cell(1,1); 
+        System.out.println("Neighbors of " + c1 + " :");
+        System.out.println(maze.getNeighbors(c1));
     }
     
 }
