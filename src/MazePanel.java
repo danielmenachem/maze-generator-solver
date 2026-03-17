@@ -53,10 +53,25 @@ public class MazePanel extends JPanel {
             }
         }
 
+        // mark startv and goal
+        Cell start = path.get(0);
+        Cell goal = path.get(path.size() - 1); 
+
+        g.setColor(Color.GRAY);
+        g.fillRect(start.col * cellSize, start.row * cellSize, cellSize, cellSize);
+        g.setColor(Color.WHITE);
+        g.setFont(new Font(".ApplesystemUIFont", Font.BOLD, (int) (cellSize * 0.6)));
+        g.drawString("S", start.col * cellSize + 7, start.row * cellSize + 17);
+
+        g.setColor(Color.GRAY);
+        g.fillRect(goal.col * cellSize, goal.row * cellSize, cellSize, cellSize);
+        g.setColor(Color.WHITE);
+        g.drawString("G", goal.col * cellSize + 7, goal.row * cellSize + 17);
+
         // draw solution gradually
         g.setColor(Color.PINK);
 
-        for (int i = 0; i < revealedSteps; i++) {
+        for (int i = 1; i < revealedSteps - 1; i++) {
             Cell cell = path.get(i); 
 
             g.fillRect(cell.col * cellSize, cell.row * cellSize, cellSize, cellSize);
