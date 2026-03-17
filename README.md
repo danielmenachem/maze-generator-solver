@@ -15,3 +15,7 @@ This algorithm produces a **Perfect Maze**, meaning:
 
 ## Basic Assumptions 
 - **Maze dimensions** are determined by the user, and must be odd numbers. this is required because the algorithm treats cells and walls differently - actual maze cells apear at odd indices, walls apear between tham. 
+- **start and goal** are set automatically. start is at the top-left corner, and goal is at the bottom-right corner.
+
+## Demo 
+![Maze Animation](assets.mazeDemo.gif)
