@@ -18,6 +18,14 @@ public class Maze {
             }
         }
     }
+
+    public int getRows() {
+        return this.rows;
+    }
+
+    public int getCols() {
+        return this.cols; 
+    }
     
     // returns true if cell is in the bounds of the grid of this maze, and false otherwise. 
     public boolean inBounds(Cell cell) {
@@ -39,6 +47,13 @@ public class Maze {
             throw new IllegalArgumentException("Cell " + cell + " is out of maze bounds"); 
         }
         grid[cell.row][cell.col] = ' '; 
+    }
+
+    public char getCell(Cell cell) {
+        if (!inBounds(cell)) {
+            throw new IllegalArgumentException("Cell " + cell + " is out of maze bounds"); 
+        }
+        return grid[cell.row][cell.col];
     }
 
     @Override
