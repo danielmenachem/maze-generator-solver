@@ -16,8 +16,8 @@ public class MazePanel extends JPanel {
         this.cellSize = cellSize; 
 
         setPreferredSize(new Dimension(
-            maze.getRows() * cellSize,
-            maze.getCols() * cellSize
+            maze.getCols() * cellSize,
+            maze.getRows() * cellSize
         ));
     }
 
