@@ -1,4 +1,5 @@
 import java.util.List;
+import javax.swing.*;
 
 public class Main {
     public static void main(String[] args) {
@@ -18,12 +19,18 @@ public class Main {
         MazeSolver solver = new MazeSolver(); 
         List<Cell> path = solver.solve(maze, start, goal); 
 
-        System.out.println("Generated maze:");
-        System.out.println(maze);
+        SwingUtilities.invokeLater(() -> {
+            JFrame frame = new JFrame("Maze Solver");
 
-        System.out.println("\n");
+            MazePanel panel = new MazePanel(maze, path, 30); 
 
-        System.out.println("Solution:");
-        System.out.println(maze.solution(path));
+            frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+            frame.add(panel);
+            frame.pack();
+            frame.setLocationRelativeTo(null);
+            frame.setVisible(true);
+
+            panel.animateSolution(80);
+        });
     }
 }
