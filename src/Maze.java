@@ -86,6 +86,32 @@ public class Maze {
         return neighbors; 
     }
 
+    public Maze solution(List<Cell> path) {
+        Maze cp = new Maze(rows, cols); 
+        
+        // first, copy the original grid 
+        for (int row = 0; row < rows; row++) {
+            for (int col = 0; col < cols; col++) {
+                cp.grid[row][col] = this.grid[row][col]; 
+            }
+        }
+
+        // mark the path using '*' 
+        for (Cell cell : path) {
+            cp.grid[cell.row][cell.col] = '.'; 
+        }
+
+        // mark start with 'S' and goal with 'G'
+        Cell start = path.get(0);
+        Cell goal = path.get(path.size() - 1);
+
+        cp.grid[start.row][start.col] = 'S';
+        cp.grid[goal.row][goal.col] = 'G'; 
+
+        return cp; 
+
+    }
+
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();

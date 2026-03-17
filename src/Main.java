@@ -1,25 +1,29 @@
+import java.util.List;
+
 public class Main {
     public static void main(String[] args) {
-        Maze maze = new Maze(5, 7); 
-        System.out.println("initial maze:");
+        if (args.length != 2) {
+            System.out.println("Usage: java Main <rows> <cols>");
+        }
+        
+        int rows = Integer.parseInt(args[0]); 
+        int cols = Integer.parseInt(args[1]); 
+
+        MazeGenerator generator = new MazeGenerator(); 
+        Maze maze = generator.generate(rows, cols); 
+
+        Cell start = new Cell(1,1); 
+        Cell goal = new Cell(rows - 2, cols - 2); 
+
+        MazeSolver solver = new MazeSolver(); 
+        List<Cell> path = solver.solve(maze, start, goal); 
+
+        System.out.println("Generated maze:");
         System.out.println(maze);
 
-        Cell c1 = new Cell(1,1); 
-        Cell c2 = new Cell(2,3); 
+        System.out.println("\n");
 
-        maze.setPassage(c1);
-        maze.setPassage(c2);
-
-        System.out.println("after carving:");
-        System.out.println(maze);
-
-        System.out.println("Is (1,1) a wall? " + maze.isWall(c1));
-        System.out.println("Is (0,0) a wall? " + maze.isWall(new Cell(0,0)));
-
-        System.out.println("Is (10,10) in of bounds? " + !maze.inBounds(new Cell(10,10))); 
-        System.out.println("Is (1,1) out of bounds? " + !maze.inBounds(c1));
-
-        maze.setPassage(new Cell(10,10)); 
-
+        System.out.println("Solution:");
+        System.out.println(maze.solution(path));
     }
 }
