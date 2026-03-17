@@ -19,5 +19,5 @@ This algorithm produces a **Perfect Maze**, meaning:
 
 ## Demo 
 <p align="center">
-    <img src="assets/mazeDemo.gif" width="600">
+    <img src="assets/mazeDemo.gif" width="400">
 </p>
