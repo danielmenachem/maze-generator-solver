@@ -18,4 +18,4 @@ This algorithm produces a **Perfect Maze**, meaning:
 - **start and goal** are set automatically. start is at the top-left corner, and goal is at the bottom-right corner.
 
 ## Demo 
-![Maze Animation](assets.mazeDemo.gif)
+![Maze Animation](assets/mazeDemo.gif)
