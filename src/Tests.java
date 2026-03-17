@@ -1,5 +1,12 @@
-public class Main {
-    public static void main(String[] args) {
+public class Tests {
+    public static void main (String[] args) {
+        mazeGeneratorTest(); 
+        mazeGeneratorTest();
+        mazeGeneratorTest();
+        mazeGeneratorTest();
+    }
+
+    public static void mazeTest() {
         Maze maze = new Maze(5, 7); 
         System.out.println("initial maze:");
         System.out.println(maze);
@@ -19,7 +26,14 @@ public class Main {
         System.out.println("Is (10,10) in of bounds? " + !maze.inBounds(new Cell(10,10))); 
         System.out.println("Is (1,1) out of bounds? " + !maze.inBounds(c1));
 
-        maze.setPassage(new Cell(10,10)); 
-
+        // in order to test Exception: 
+        // maze.setPassage(new Cell(10,10)); 
     }
+
+    public static void mazeGeneratorTest() {
+        MazeGenerator generator = new MazeGenerator(); 
+        Maze maze = generator.generate(11, 11); 
+        System.out.println(maze);
+    }
+    
 }

@@ -11,5 +11,24 @@ public class Cell {
     public String toString() {
         return "(" + row + "," + col + ")"; 
     }
+
+    @Override
+    public boolean equals(Object object) {
+        if (this == object) {
+            return true; 
+        }
+
+        if (!(object instanceof Cell)) {
+            return false; 
+        }
+
+        Cell other = (Cell) object;
+        return this.row == other.row && this.col == other.col; 
+    }
+
+    @Override 
+    public int hashCode() {
+        return 31 * row + col; 
+    }
     
 }
